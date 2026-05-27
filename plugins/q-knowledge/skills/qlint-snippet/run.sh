@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # run.sh — run KX qlint on a single q code snippet.
-# Bundled with the `qlint-knowledge` plugin under
-#   plugins/qlint-knowledge/skills/qlint-snippet/run.sh
+# Bundled with the `q-knowledge` plugin under
+#   plugins/q-knowledge/skills/qlint-snippet/run.sh
 #
 # Usage:
 #   <plugin-dir>/skills/qlint-snippet/run.sh <<'EOF'      (preferred for multi-line)
