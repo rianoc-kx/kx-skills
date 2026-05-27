@@ -14,8 +14,7 @@ gets consistent, high-quality results.
 
 | Plugin       | What it does                                                      | When it triggers |
 |--------------|-------------------------------------------------------------------|------------------|
-| [`q-knowledge`](./plugins/q-knowledge/skills/q/)         | kdb+/q language support — idiomatic q, qsql, IPC, kdb+ workflows | Writing q code, querying kdb+ tables |
-| [`qlint-knowledge`](./plugins/qlint-knowledge/skills/qlint-snippet/) | KX qlint — lint a single q snippet via `/qlint-snippet`         | Quick syntax check on a q code block; self-validation in tool-use loops |
+| [`q-knowledge`](./plugins/q-knowledge/)                  | kdb+/q language support — idiomatic q, qsql, IPC, kdb+ workflows; also `/qlint-snippet` for KX qlint | Writing q code, querying kdb+ tables, lint checks |
 | [`pykx-knowledge`](./plugins/pykx-knowledge/skills/pykx/) | PyKX — using kdb+/q from Python, type conversions, API guidance  | Working with PyKX, Python-kdb+ integration |
 | [`kdbx-knowledge`](./plugins/kdbx-knowledge/) | kdb-X workflows and `aimeta` metadata authoring + discovery       | KDB-X platform, AI-native vector search, writing/reading aimeta annotations |
 | [`kdbai-knowledge`](./plugins/kdbai-knowledge/skills/kdbai/) | KDB.AI vector database — schema, hybrid search, AI integration   | Building vector search or RAG with KDB.AI |
@@ -34,7 +33,6 @@ In Claude Code, add the marketplace:
 
 ```
 /plugin install q-knowledge@kx-skills
-/plugin install qlint-knowledge@kx-skills
 /plugin install pykx-knowledge@kx-skills
 /plugin install kdbx-knowledge@kx-skills
 /plugin install kdbai-knowledge@kx-skills
@@ -61,16 +59,15 @@ kx-skills/
 └── plugins/
     ├── q-knowledge/
     │   ├── .claude-plugin/plugin.json
-    │   └── skills/q/                ← q language & kdb+ skill
-    │       ├── SKILL.md
-    │       ├── reference.md
-    │       └── references/
-    ├── qlint-knowledge/
-    │   ├── .claude-plugin/plugin.json
     │   ├── README.md
-    │   └── skills/qlint-snippet/    ← KX qlint wrapper (executable skill)
-    │       ├── SKILL.md
-    │       └── run.sh
+    │   └── skills/
+    │       ├── q/                   ← q language & kdb+ skill
+    │       │   ├── SKILL.md
+    │       │   ├── reference.md
+    │       │   └── references/
+    │       └── qlint-snippet/       ← KX qlint wrapper (executable skill)
+    │           ├── SKILL.md
+    │           └── run.sh
     ├── pykx-knowledge/
     │   ├── .claude-plugin/plugin.json
     │   └── skills/pykx/             ← PyKX Python-kdb+ interface
