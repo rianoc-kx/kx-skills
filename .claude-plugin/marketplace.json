@@ -15,6 +15,13 @@
       "homepage": "https://github.com/KxSystems/kx-skills/tree/main/plugins/q-knowledge"
     },
     {
+      "name": "qlint-knowledge",
+      "description": "KX qlint integration — lint a single q/kdb+ snippet via /qlint-snippet",
+      "source": "./plugins/qlint-knowledge",
+      "category": "development",
+      "homepage": "https://github.com/KxSystems/kx-skills/tree/main/plugins/qlint-knowledge"
+    },
+    {
       "name": "pykx-knowledge",
       "description": "PyKX workflows — using kdb+/q from Python, conversions between Python and q types, and PyKX API guidance",
       "source": "./plugins/pykx-knowledge",
