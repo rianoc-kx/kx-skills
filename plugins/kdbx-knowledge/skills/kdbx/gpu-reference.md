@@ -4,7 +4,7 @@
 
 Load with: `.gpu:use`kx.gpu`
 
-**Concepts**: GPU VRAM data = `foreign` type in q. **Mixed residency** = some columns GPU, others CPU.
+**Concepts**: GPU VRAM data = `foreign` type in q. **Mixed residency** = some columns GPU, others CPU. **Nested columns** supported, 1 level deep only (since 2.0.0).
 
 ---
 
@@ -56,6 +56,8 @@ T:.gpu.append[T1;T2]                          / Join GPU-resident tables
 - Casting supported
 
 Where clauses may not filter rows until the final stage — pre-filter on CPU for selective predicates.
+
+Since 2.0.0: `by` clause no longer requires an aggregate, and `mavg` composes with `by`.
 
 ## Sorting & Search
 
@@ -116,4 +118,4 @@ rid:.gpu.nvtx.start "load trades"             / NVTX range begin (returns range 
 - Symbol sorting not yet implemented in `.gpu.asc` / `.gpu.xasc` — enumerate first
 - `.gpu.select` requires ALL columns on device — `.gpu.to` first
 - `.gpu.aj` requires `` `g# `` grouped attribute; `.gpu.bin` requires sorted input
-- 10x-25x speedups typical; near-linear multi-GPU scaling
+- `GPU_LAUNCH_FAIL` error indicates a GPU setup issue.  Verify drivers, CUDA, env vars
