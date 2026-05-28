@@ -5,7 +5,7 @@ description: Lint a single q/qSQL code snippet using KX qlint. Reads code from s
 
 # qlint-snippet
 
-Run KX qlint on a single q/qSQL code snippet via the `run.sh` script that sits in the same directory as this SKILL.md. Useful for:
+Run KX qlint on a single q/qSQL code snippet via the `scripts/run.sh` script bundled with this skill (sibling `scripts/` directory next to this SKILL.md). Useful for:
 
 - ad-hoc syntax checks on a code block pasted into the chat
 - Claude auto-validating q code it just generated before presenting it to the user
@@ -24,19 +24,19 @@ Run KX qlint on a single q/qSQL code snippet via the `run.sh` script that sits i
 
 ## Execute
 
-Invoke the `run.sh` script bundled with this skill (it sits in the same directory as this SKILL.md). Pass the snippet via argument **or** stdin. **Stdin (heredoc) is strongly preferred for multi-line code** — see the gotcha below.
+Invoke the `scripts/run.sh` script bundled with this skill (under the `scripts/` directory sibling to this SKILL.md). Pass the snippet via argument **or** stdin. **Stdin (heredoc) is strongly preferred for multi-line code** — see the gotcha below.
 
 ```bash
 # Stdin form (preferred for multi-line — quoted heredoc disables all expansion)
-run.sh <<'EOF'
+scripts/run.sh <<'EOF'
 <the snippet here, possibly multi-line>
 EOF
 
 # Argument form (one-liner, single-line code)
-run.sh '<the snippet>'
+scripts/run.sh '<the snippet>'
 ```
 
-Use the absolute path to `run.sh` (the file alongside this SKILL.md) so it works regardless of the caller's current working directory.
+Use the absolute path to `scripts/run.sh` (resolved from the skill's own directory) so it works regardless of the caller's current working directory.
 
 ### Multi-line via argument — pick one of these three
 

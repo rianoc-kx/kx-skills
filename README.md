@@ -67,7 +67,7 @@ kx-skills/
     │       │   └── references/
     │       └── qlint-snippet/       ← KX qlint wrapper (executable skill)
     │           ├── SKILL.md
-    │           └── run.sh
+    │           └── scripts/run.sh
     ├── pykx-knowledge/
     │   ├── .claude-plugin/plugin.json
     │   └── skills/pykx/             ← PyKX Python-kdb+ interface

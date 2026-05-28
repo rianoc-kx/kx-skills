@@ -57,7 +57,7 @@ Just write or paste q code in Claude Code and Claude will pick the right skill. 
 The wrapper script lands under your installed plugins cache. To find it:
 
 ```bash
-RUN_SH=$(find ~/.claude/plugins -path '*q-knowledge/skills/qlint-snippet/run.sh' | head -1)
+RUN_SH=$(find ~/.claude/plugins -path '*q-knowledge/skills/qlint-snippet/scripts/run.sh' | head -1)
 
 # Preferred for multi-line (quoted heredoc — no shell expansion)
 "$RUN_SH" <<'EOF'
@@ -92,7 +92,7 @@ Plugins cannot ship a Claude Code permissions allowlist — that is by design (a
   "permissions": {
     "allow": [
       "Skill(qlint-snippet)",
-      "Bash(*/q-knowledge/skills/qlint-snippet/run.sh)"
+      "Bash(*/q-knowledge/skills/qlint-snippet/scripts/run.sh)"
     ]
   }
 }

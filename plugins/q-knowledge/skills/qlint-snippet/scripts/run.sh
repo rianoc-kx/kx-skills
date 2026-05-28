@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # run.sh — run KX qlint on a single q code snippet.
 # Bundled with the `q-knowledge` plugin under
-#   plugins/q-knowledge/skills/qlint-snippet/run.sh
+#   plugins/q-knowledge/skills/qlint-snippet/scripts/run.sh
 #
 # Usage:
-#   <plugin-dir>/skills/qlint-snippet/run.sh <<'EOF'      (preferred for multi-line)
+#   <plugin-dir>/skills/qlint-snippet/scripts/run.sh <<'EOF'      (preferred for multi-line)
 #   <q code lines>
 #   EOF
-#   <plugin-dir>/skills/qlint-snippet/run.sh '<q code>'   (single-line arg)
+#   <plugin-dir>/skills/qlint-snippet/scripts/run.sh '<q code>'   (single-line arg)
 #
 # Gotcha: in bash single quotes, '\n' is the two literal chars '\' + 'n',
 # NOT a newline — q will then error with CANNOT_PARSE on the bare '\'.
