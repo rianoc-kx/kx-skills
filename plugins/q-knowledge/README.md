@@ -3,7 +3,7 @@
 Claude Code plugin for kdb+/q development. Two skills:
 
 - **`q`** — kdb+/q language support: idiomatic q, qsql, IPC, common errors, Python-to-q translation. Pure knowledge, auto-triggered when Claude detects q-related work. No external dependencies.
-- **`qlint-snippet`** — wrapper around [KX qlint](https://code.kx.com/insights/1.13/qlint/). Lint a single q/kdb+ snippet without writing it to a JSONL first. Slash command `/qlint-snippet` plus auto-trigger on phrases like "lint this q code". **Requires `QLINT_DIR` env var and `q` on PATH — see Prerequisites below.**
+- **`qlint-snippet`** — wrapper around [KX qlint](https://code.kx.com/insights/1.13/qlint/). Lint a single q/kdb+ snippet. Slash command `/qlint-snippet` plus auto-trigger on phrases like "lint this q code". **Requires `QLINT_DIR` env var and `q` on PATH — see Prerequisites below.**
 
 ## Install
 

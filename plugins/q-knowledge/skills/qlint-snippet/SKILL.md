@@ -1,14 +1,14 @@
 ---
 name: qlint-snippet
-description: Lint a single q/qSQL code snippet using KX qlint — no JSONL, no LLM. Reads code from stdin or argument and prints the raw lint table. Use when the user says "qlint this snippet", "lint this q code", "check syntax of <code>", "qlint snippet", or wants quick lint feedback on a piece of q without writing it to a JSONL first. For batch lint over JSONL training files, use /qlint instead.
+description: Lint a single q/qSQL code snippet using KX qlint. Reads code from stdin or argument and prints the raw lint table. Use when the user says "qlint this snippet", "lint this q code", "check syntax of <code>", "qlint snippet", or wants quick lint feedback on a piece of q code.
 ---
 
 # qlint-snippet
 
-Run KX qlint on a single q/qSQL code snippet via the `run.sh` script that sits in the same directory as this SKILL.md. This is a lightweight, JSONL-free path useful for:
+Run KX qlint on a single q/qSQL code snippet via the `run.sh` script that sits in the same directory as this SKILL.md. Useful for:
 
 - ad-hoc syntax checks on a code block pasted into the chat
-- the eval-time tool-use loop (a model under test calls the wrapper to self-validate its own generated q)
+- Claude auto-validating q code it just generated before presenting it to the user
 
 ## Prerequisites
 
