@@ -145,7 +145,7 @@ syms where (string each syms) like "*ap*"
 
 - **`&` is min, `|` is max** — not logical AND/OR. `x>1 & all y` means `x > min(1; all y)`.
 - **`/` is comment at start of token.** `*/x` → `*` then comment. Write `(*/)x` or `prd x`.
-- **`x i j` is `x[i;j]`**, not `(x i) j`. Parenthesize for chaining.
+- **`x i j` is `x[i[j]]`, not `x[i;j]`.** Use `x[i;j]` to index at depth, `(x i) j` to chain.
 - **No `return` keyword.** Use `:value` for early return: `{if[x<0; :0]; x*x}`.
 - **`and`/`or` are not short-circuit.** Use `$[cond1;cond2;0b]` for short-circuit.
 - **Out-of-bounds returns null, not an error.** `(1 2 3) 5` → `0N` silently.
