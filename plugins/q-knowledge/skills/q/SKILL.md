@@ -107,7 +107,7 @@ Symbols (`` `foo ``) and char vectors / strings (`"foo"`) are different types. M
 
 | Want to... | On strings | On symbols |
 |---|---|---|
-| Substring match | ``"hello" like "*ll*"`` | first cast: ``(string `hello) like "*ll*"`` |
+| Substring match | ``"hello" like "*ll*"`` | works directly: `` `hello like "*ll*" `` |
 | Find substring | `"hello" ss "ll"` | first cast: `` (string `hello) ss "ll" `` |
 | Lowercase | `lower "ABC"` → `"abc"` | works directly: `` lower `ABC `` → `` `abc `` |
 | Split by delimiter | `"," vs "a,b,c"` | not applicable — symbols are atomic |
@@ -116,18 +116,15 @@ Convert between them:
 
 ```q
 string `foo                    / "foo"
-string each `apple`banana      / ("apple"; "banana")   -- list of strings
+string `apple`banana           / ("apple"; "banana")   -- list of strings
 `$ "foo"                       / `foo                  -- string→symbol
-`$ ("a"; "b"; "c")             / `a`b`c                -- list-of-strings→symbols
+`$ ("abc"; "def")              / `abc`def              -- list-of-strings→symbols
 ```
 
-Common pitfall — filtering a symbol list by substring:
+Filtering a symbol list by substring — `like` works directly on symbols, no cast needed:
 
 ```q
-/ WRONG — like fails with 'type on symbol input
-syms where syms like "*ap*"
-/ RIGHT — coerce to a list of strings first
-syms where (string each syms) like "*ap*"
+syms where syms like "*ap*"    / like matches each symbol element-wise
 ```
 
 `each` semantics on a string atom is also a trap: `lower each "abc"` iterates the char vector and applies `lower` to each char atom, which is rarely what you want. `lower "abc"` works directly.
