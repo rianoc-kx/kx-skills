@@ -1,7 +1,7 @@
 # KX Plugins for Claude Code
 
 Public marketplace of [Claude Code](https://docs.claude.com/en/docs/claude-code/overview)
-plugins for working with KX products: kdb+/q, PyKX, kdb-X, and KDB.AI.
+plugins for working with KX products: kdb+/q, PyKX, kdb-X, KDB.AI, and KX Insights Enterprise.
 
 Each plugin packages one or more Skills — a folder of markdown that Claude loads
 automatically when it recognises a relevant task. Skills teach Claude
@@ -18,6 +18,7 @@ gets consistent, high-quality results.
 | [`pykx-knowledge`](./plugins/pykx-knowledge/skills/pykx/) | PyKX — using kdb+/q from Python, type conversions, API guidance  | Working with PyKX, Python-kdb+ integration |
 | [`kdbx-knowledge`](./plugins/kdbx-knowledge/) | kdb-X workflows and `aimeta` metadata authoring + discovery       | KDB-X platform, AI-native vector search, writing/reading aimeta annotations |
 | [`kdbai-knowledge`](./plugins/kdbai-knowledge/skills/kdbai/) | KDB.AI vector database — schema, hybrid search, AI integration   | Building vector search or RAG with KDB.AI |
+| [`kdbie-knowledge`](./plugins/kdbie-knowledge/) | KX Insights Enterprise — kxi CLI admin + Stream Processor pipelines | Using kxi to build/deploy packages, manage IE, or writing SP pipelines |
 
 ---
 
@@ -36,6 +37,7 @@ In Claude Code, add the marketplace:
 /plugin install pykx-knowledge@kx-skills
 /plugin install kdbx-knowledge@kx-skills
 /plugin install kdbai-knowledge@kx-skills
+/plugin install kdbie-knowledge@kx-skills
 ```
 
 Or browse interactively with `/plugin` and pick from the **Discover** tab.
@@ -88,11 +90,18 @@ kx-skills/
     │       │   └── SKILL.md
     │       └── kxmeta-discover/     ← probing aimeta at runtime
     │           └── SKILL.md
-    └── kdbai-knowledge/
+    ├── kdbai-knowledge/
+    │   ├── .claude-plugin/plugin.json
+    │   └── skills/kdbai/            ← KDB.AI vector database
+    │       ├── SKILL.md
+    │       └── reference.md
+    └── kdbie-knowledge/
         ├── .claude-plugin/plugin.json
-        └── skills/kdbai/            ← KDB.AI vector database
-            ├── SKILL.md
-            └── reference.md
+        └── skills/
+            ├── kdbie-dev/          ← kxi CLI admin (packages, install, logs)
+            │   └── SKILL.md
+            └── pipeline-dev/       ← Stream Processor pipeline authoring
+                └── SKILL.md
 ```
 
 ---
